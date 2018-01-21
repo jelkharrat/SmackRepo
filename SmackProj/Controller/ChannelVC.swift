@@ -13,6 +13,10 @@ class ChannelVC: UIViewController {
     //Outlets
     @IBOutlet weak var loginBtn: UIButton!
     
+    //Takes us from CreateAccountVC to Channel
+    //In main.storyboard, control drag from yellow box (UIViewController) to Orange Box all the way on the right and choose the function. Also need to give it an identifier in main.storyboard
+    //Then need to make an IBACTION for the close image in the CreateAccountVC file
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue){}
 
     override func viewDidLoad() {
         super.viewDidLoad()
