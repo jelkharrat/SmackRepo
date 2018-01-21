@@ -16,6 +16,8 @@
 		88D3A9222014E12B00957ED4 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3A9212014E12B00957ED4 /* ChatVC.swift */; };
 		88D3A9242014E14B00957ED4 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3A9232014E14B00957ED4 /* ChannelVC.swift */; };
 		88D3A9262014ECA800957ED4 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3A9252014ECA800957ED4 /* GradientView.swift */; };
+		88D3A9292014FB0100957ED4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3A9282014FB0100957ED4 /* Constants.swift */; };
+		88D3A92B2015036F00957ED4 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3A92A2015036F00957ED4 /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		88D3A9212014E12B00957ED4 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		88D3A9232014E14B00957ED4 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		88D3A9252014ECA800957ED4 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		88D3A9282014FB0100957ED4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		88D3A92A2015036F00957ED4 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,7 @@
 		886B6553200F7FFC0068EF72 /* SmackProj */ = {
 			isa = PBXGroup;
 			children = (
+				88D3A9272014FAE500957ED4 /* Utilities */,
 				88D3A9202014E0EA00957ED4 /* Controller */,
 				88D3A91E2014E0D000957ED4 /* View */,
 				88D3A91D2014E0C300957ED4 /* Model */,
@@ -129,8 +134,17 @@
 			children = (
 				88D3A9212014E12B00957ED4 /* ChatVC.swift */,
 				88D3A9232014E14B00957ED4 /* ChannelVC.swift */,
+				88D3A92A2015036F00957ED4 /* LoginVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		88D3A9272014FAE500957ED4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				88D3A9282014FB0100957ED4 /* Constants.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +276,8 @@
 				88D3A9262014ECA800957ED4 /* GradientView.swift in Sources */,
 				886B6555200F7FFC0068EF72 /* AppDelegate.swift in Sources */,
 				88D3A91C200F8A2100957ED4 /* SWRevealViewController.m in Sources */,
+				88D3A9292014FB0100957ED4 /* Constants.swift in Sources */,
+				88D3A92B2015036F00957ED4 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
