@@ -7,6 +7,8 @@
 //
 
 import Foundation
+//library built on top of Apples URL session framework that makes making web requests easier
+import Alamofire
 
 //This is a singleton - can only have one instance of itself and accessible globally
 class AuthService {
@@ -51,6 +53,30 @@ class AuthService {
             defaults.set(newValue, forKey: USER_EMAIL)
         }
         
+    }
+    
+    func registerUser(email: String, password: String, completion: @escaping CompletionHandler){
+        let lowerCasedEmail = email.lowercased()
+        
+        let header = [
+            "Content-Type": "application/json; charset=utf-8"
+        ]
+        
+        let body: [String: Any] = [
+            "email": lowerCasedEmail,
+            "password": password
+        ]
+        
+        //posting to the URL the body of the email which contains the email and password to register the user and store data within the data
+        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
+            if response.result.error == nil {
+                completion(true)
+            }else{
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+            
+        }
     }
     
 }

@@ -8,6 +8,16 @@
 
 import Foundation
 
+//Completion Handler that thats notifies when a web request has been made
+//typealias is just something that allows you to specify what kind of variable it is (Bool in this case)
+//(_ Success: Bool) -> () this is a closure, which is a function that can be passed around in code
+//doing a web request and use the closure/completion handler to check later on to see if the bool tells us that the web request has been made
+typealias CompletionHandler = (_ Success: Bool) -> ()
+
+//URL
+let BASE_URL = "https://chatitupbruh.herokuapp.com/v1/"
+let URL_REGISTER = "\(BASE_URL)account/register"
+
 //Segues
 let TO_LOGIN = "toLogin"
 let TO_CREATE_ACCOUNT = "toCreateAccount"
