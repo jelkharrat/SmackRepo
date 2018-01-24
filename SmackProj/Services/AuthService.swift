@@ -9,6 +9,7 @@
 import Foundation
 //library built on top of Apples URL session framework that makes making web requests easier
 import Alamofire
+import SwiftyJSON
 
 //This is a singleton - can only have one instance of itself and accessible globally
 class AuthService {
@@ -58,24 +59,64 @@ class AuthService {
     func registerUser(email: String, password: String, completion: @escaping CompletionHandler){
         let lowerCasedEmail = email.lowercased()
         
-        let header = [
-            "Content-Type": "application/json; charset=utf-8"
-        ]
-        
         let body: [String: Any] = [
             "email": lowerCasedEmail,
             "password": password
         ]
         
         //posting to the URL the body of the email which contains the email and password to register the user and store data within the data
-        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
+        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseString { (response) in
             if response.result.error == nil {
                 completion(true)
             }else{
                 completion(false)
                 debugPrint(response.result.error as Any)
             }
-            
+        }
+    }
+    
+    func loginUser(email: String, pass: String, completion: @escaping CompletionHandler) {
+     
+        let lowerCasedEmail = email.lowercased()
+        
+        let body: [String: Any] = [
+            "email": lowerCasedEmail,
+            "password": pass
+        ]
+        
+        //in this request, sending out email and pass data, THEN receiving data in the form of access keys in JSON which will need to be parsed or SWIFTYJSON
+        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+                
+//                //JSON parsing
+//                if let json = response.result.value as? Dictionary<String,Any> {
+//                    if let email = json["user"] as? String {
+//                        self.userEmail = email
+//                    }
+//
+//                    if let token = json["token"] as? String {
+//                        self.authToken = token
+//                    }
+//                }
+                
+                //swiftyJson
+                guard let data = response.data else {
+                    return
+                }
+                let json = JSON(data: data)
+                
+                //StringValue will either auto unwrap for you or an empty string
+                self.userEmail = json["user"].stringValue
+                
+                self.authToken = json["token"].stringValue
+                
+                
+                self.isLoggedIn = true
+                completion(true)
+            } else{
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
         }
     }
     
