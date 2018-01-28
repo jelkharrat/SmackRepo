@@ -24,6 +24,7 @@
 		88D3A934201989CE00957ED4 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3A933201989CE00957ED4 /* UserDataService.swift */; };
 		88D3A936201A0EF200957ED4 /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3A935201A0EF200957ED4 /* AvatarPickerVC.swift */; };
 		88D3A938201A122600957ED4 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3A937201A122600957ED4 /* AvatarCell.swift */; };
+		88D3A93A201E37DC00957ED4 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D3A939201E37DC00957ED4 /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		88D3A933201989CE00957ED4 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		88D3A935201A0EF200957ED4 /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		88D3A937201A122600957ED4 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		88D3A939201E37DC00957ED4 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				88D3A9252014ECA800957ED4 /* GradientView.swift */,
 				88D3A9312018B81A00957ED4 /* RoundedButton.swift */,
 				88D3A937201A122600957ED4 /* AvatarCell.swift */,
+				88D3A939201E37DC00957ED4 /* CircleImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				88D3A9242014E14B00957ED4 /* ChannelVC.swift in Sources */,
 				88D3A936201A0EF200957ED4 /* AvatarPickerVC.swift in Sources */,
 				88D3A9322018B81B00957ED4 /* RoundedButton.swift in Sources */,
+				88D3A93A201E37DC00957ED4 /* CircleImage.swift in Sources */,
 				88D3A9222014E12B00957ED4 /* ChatVC.swift in Sources */,
 				88D3A934201989CE00957ED4 /* UserDataService.swift in Sources */,
 				88D3A92D20152E9700957ED4 /* CreateAccountVC.swift in Sources */,
