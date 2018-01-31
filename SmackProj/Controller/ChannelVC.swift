@@ -28,6 +28,11 @@ class ChannelVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
         
     }
+    
+    //when opening the app with a user log in, the view  may not have been instantiated
+    override func viewDidAppear(_ animated: Bool) {
+        setUpUserInfo()
+    }
 
     @IBAction func loginBtnPressed(_ sender: Any) {
         if AuthService.instance.isLoggedIn{
@@ -44,6 +49,10 @@ class ChannelVC: UIViewController {
     
     //selector for notification
     @objc func userDidChange(_ notif: Notification) {
+   setUpUserInfo()
+    }
+    
+    func setUpUserInfo(){
         if AuthService.instance.isLoggedIn {
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
             userImg.image = UIImage(named: UserDataService.instance.avatarName)
@@ -55,4 +64,6 @@ class ChannelVC: UIViewController {
             userImg.backgroundColor = UIColor.clear
         }
     }
+    
+    
 }

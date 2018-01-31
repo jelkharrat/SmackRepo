@@ -221,6 +221,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loginPressed:" destination="Qsh-Ve-sb6" eventType="touchUpInside" id="Oye-gh-exm"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8h9-sq-3nZ">
                                 <rect key="frame" x="134" y="316" width="107" height="30"/>
@@ -293,15 +296,21 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qGp-lg-pz7">
+                                <rect key="frame" x="169" y="515" width="37" height="37"/>
+                                <color key="color" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="qGp-lg-pz7" firstAttribute="centerY" secondItem="p2F-LC-S0z" secondAttribute="centerY" constant="200" id="1r1-4p-LZ5"/>
                             <constraint firstItem="ewp-Yi-wx6" firstAttribute="top" secondItem="PkL-Ab-RZd" secondAttribute="bottom" constant="40" id="2Lf-GY-Qge"/>
                             <constraint firstItem="8h9-sq-3nZ" firstAttribute="centerX" secondItem="p2F-LC-S0z" secondAttribute="centerX" id="2kT-bx-Z3C"/>
                             <constraint firstItem="PkL-Ab-RZd" firstAttribute="top" secondItem="p2F-LC-S0z" secondAttribute="top" constant="60" id="9ge-zb-XX5"/>
                             <constraint firstItem="UXL-LF-WJP" firstAttribute="top" secondItem="ewp-Yi-wx6" secondAttribute="bottom" constant="40" id="AAh-d0-FR5"/>
                             <constraint firstItem="UXL-LF-WJP" firstAttribute="centerX" secondItem="p2F-LC-S0z" secondAttribute="centerX" id="LAX-fu-Uhr"/>
                             <constraint firstItem="ewp-Yi-wx6" firstAttribute="centerX" secondItem="p2F-LC-S0z" secondAttribute="centerX" id="Mmg-zt-t79"/>
+                            <constraint firstItem="qGp-lg-pz7" firstAttribute="centerX" secondItem="p2F-LC-S0z" secondAttribute="centerX" id="UMY-Br-lLj"/>
                             <constraint firstItem="B1F-lE-ZiY" firstAttribute="top" secondItem="lF3-wI-F0P" secondAttribute="top" constant="8" id="Xk7-Fx-3yk"/>
                             <constraint firstItem="PkL-Ab-RZd" firstAttribute="centerX" secondItem="p2F-LC-S0z" secondAttribute="centerX" id="f2F-xw-5MV"/>
                             <constraint firstItem="lF3-wI-F0P" firstAttribute="trailing" secondItem="B1F-lE-ZiY" secondAttribute="trailing" id="oLH-uD-W23"/>
@@ -310,6 +319,9 @@
                         <viewLayoutGuide key="safeArea" id="lF3-wI-F0P"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTxt" destination="7aL-Lj-pgc" id="8BL-Yx-h6G"/>
+                        <outlet property="spinner" destination="qGp-lg-pz7" id="UNT-PB-j1Z"/>
+                        <outlet property="userNameTxt" destination="Oqx-HB-nKh" id="n8T-u3-XuP"/>
                         <segue destination="sgF-ee-Xpz" kind="show" identifier="toCreateAccount" id="VcO-ng-NBn"/>
                     </connections>
                 </viewController>
