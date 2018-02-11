@@ -35,9 +35,19 @@ class ChatVC: UIViewController {
             })
         }
         
-        MessageService.instance.findAllChannel { (success) in
-            
+        //below is improvised cuz video is chreech
+        if AuthService.instance.isLoggedIn{
+            MessageService.instance.findAllChannel { (success) in
+                
+            }
+        }else{
+            UserDataService.instance.logOutUser()
+            //maybe dismiss to main screen?
+            print("not working jabroni")
+            return
         }
+      
+        
 
     }
 

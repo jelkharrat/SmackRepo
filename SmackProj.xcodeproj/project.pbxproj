@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5777766D2C8AF82B0142AFCD /* Pods_SmackProj.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 779955EB862CE3DD4DCC2EF7 /* Pods_SmackProj.framework */; };
+		88252D9820308FF7007281AC /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88252D9720308FF6007281AC /* ChannelCell.swift */; };
 		886B6555200F7FFC0068EF72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886B6554200F7FFC0068EF72 /* AppDelegate.swift */; };
 		886B655A200F7FFD0068EF72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 886B6558200F7FFD0068EF72 /* Main.storyboard */; };
 		886B655C200F7FFD0068EF72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 886B655B200F7FFD0068EF72 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 		0BD288EE5345E5AFA58C9CC2 /* Pods-SmackProj.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackProj.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SmackProj/Pods-SmackProj.debug.xcconfig"; sourceTree = "<group>"; };
 		5CF871DD2AA7A8BF784507D5 /* Pods-SmackProj.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmackProj.release.xcconfig"; path = "Pods/Target Support Files/Pods-SmackProj/Pods-SmackProj.release.xcconfig"; sourceTree = "<group>"; };
 		779955EB862CE3DD4DCC2EF7 /* Pods_SmackProj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmackProj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88252D9720308FF6007281AC /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		886B6551200F7FFC0068EF72 /* SmackProj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmackProj.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		886B6554200F7FFC0068EF72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		886B6559200F7FFD0068EF72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				88D3A9312018B81A00957ED4 /* RoundedButton.swift */,
 				88D3A937201A122600957ED4 /* AvatarCell.swift */,
 				88D3A939201E37DC00957ED4 /* CircleImage.swift */,
+				88252D9720308FF6007281AC /* ChannelCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88EDB48920209F3B008E72F2 /* ProfileVC.swift in Sources */,
+				88252D9820308FF7007281AC /* ChannelCell.swift in Sources */,
 				88D3A9242014E14B00957ED4 /* ChannelVC.swift in Sources */,
 				88D3A936201A0EF200957ED4 /* AvatarPickerVC.swift in Sources */,
 				88D3A9322018B81B00957ED4 /* RoundedButton.swift in Sources */,
