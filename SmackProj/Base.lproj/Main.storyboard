@@ -111,6 +111,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7XF-sU-MvP">
                                 <rect key="frame" x="281" y="83" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
+                                <connections>
+                                    <action selector="addChannelPressed:" destination="62i-PI-A5t" eventType="touchUpInside" id="t9O-dO-N3w"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="GPg-C6-yh1" customClass="CircleImage" customModule="SmackProj" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="572" width="75" height="75"/>
@@ -301,13 +304,13 @@
                                 </subviews>
                             </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="qGp-lg-pz7">
-                                <rect key="frame" x="169" y="515" width="37" height="37"/>
+                                <rect key="frame" x="169" y="395" width="37" height="37"/>
                                 <color key="color" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="qGp-lg-pz7" firstAttribute="centerY" secondItem="p2F-LC-S0z" secondAttribute="centerY" constant="200" id="1r1-4p-LZ5"/>
+                            <constraint firstItem="qGp-lg-pz7" firstAttribute="centerY" secondItem="p2F-LC-S0z" secondAttribute="centerY" constant="80" id="1r1-4p-LZ5"/>
                             <constraint firstItem="ewp-Yi-wx6" firstAttribute="top" secondItem="PkL-Ab-RZd" secondAttribute="bottom" constant="40" id="2Lf-GY-Qge"/>
                             <constraint firstItem="8h9-sq-3nZ" firstAttribute="centerX" secondItem="p2F-LC-S0z" secondAttribute="centerX" id="2kT-bx-Z3C"/>
                             <constraint firstItem="PkL-Ab-RZd" firstAttribute="top" secondItem="p2F-LC-S0z" secondAttribute="top" constant="60" id="9ge-zb-XX5"/>
