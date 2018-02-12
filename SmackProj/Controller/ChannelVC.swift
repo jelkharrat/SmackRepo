@@ -31,6 +31,12 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //The notification is being broadcasted in the createAccountVC and is being listened for here
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
         
+        SocketService.instance.getChannel { (success) in
+            if success {
+                self.tableView.reloadData()
+            }
+        }
+        
     }
     
     //when opening the app with a user log in, the view  may not have been instantiated
