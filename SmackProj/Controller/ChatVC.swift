@@ -13,6 +13,7 @@ class ChatVC: UIViewController {
     //Outlets
     //usually an action but in this case we assign it as an outlet and assign an action to it in the viewdidload
     @IBOutlet weak var menuBtn: UIButton!
+    @IBOutlet weak var channelNameLbl: UILabel!
     
 
     override func viewDidLoad() {
@@ -26,15 +27,19 @@ class ChatVC: UIViewController {
         
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: NOTIF_CHANNELS_SELECTED, object: nil)
+        
         //going to do a check to see if logged in. if yes, then call finduserbyemail function to populate user info again
         if AuthService.instance.isLoggedIn {
             AuthService.instance.findUserbyEmail(completion: { (success) in
-                if success {
                     NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
-                }
             })
         }
         
+        
+        /*
         //below is improvised cuz video is chreech
         if AuthService.instance.isLoggedIn{
             MessageService.instance.findAllChannel { (success) in
@@ -46,9 +51,36 @@ class ChatVC: UIViewController {
             print("not working jabroni")
             return
         }
-      
+      */
         
 
+    }
+    
+    @objc func userDataDidChange(_ notif: Notification){
+        if AuthService.instance.isLoggedIn{
+            //get channels
+            OnLogInGetMessages()
+        }else{
+            channelNameLbl.text = "Please Log In"
+        }
+    }
+    
+    @objc func channelSelected(_ notif: Notification){
+        updateWithChannel()
+    }
+    
+    func updateWithChannel(){
+        //if cant find label, set to nothing
+        let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
+        channelNameLbl.text = "#\(channelName)"
+    }
+    
+    func OnLogInGetMessages(){
+        MessageService.instance.findAllChannel { (success) in
+            if success {
+                //do stuff w channel
+            }
+        }
     }
 
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//persistent connection between app and server
 import SocketIO
 
 class SocketService: NSObject {
@@ -38,9 +39,13 @@ class SocketService: NSObject {
         completion(true)
     }
     
+    //Need to call this function in the place where we want it to listen for changes, which is in the the ChannelVC
     func getChannel(completion: @escaping CompletionHandler){
         //ack is standard for acknowledgement
+        //just calling/declaring the array dataArray here and is being parsed out
         socket.on("channelCreated") { (dataArray, ack) in
+            
+            //comes back as a type any, so need to cast as string
             guard let channelName = dataArray[0] as? String else {return}
             
             guard let channelDescription = dataArray[1] as? String else {return}

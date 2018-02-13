@@ -16,6 +16,9 @@ class MessageService {
     
     var channels = [Channel]()
     
+    //variable for the channel we are currently looking at. Needs to be optional incase we log out
+    var selectedChannel : Channel?
+    
     //web request that pulls in all the channels
     func findAllChannel(completion: @escaping CompletionHandler){
         Alamofire.request(URL_CHANNELS, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
@@ -30,6 +33,8 @@ class MessageService {
                     self.channels.append(channel)
                 }
                    // print(self.channels[0].channelTitle)
+                    NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil)
+                    
                     completion(true)
             }
             }else{
@@ -38,4 +43,11 @@ class MessageService {
             }
         }
     }
+    
+    //removes all the channels from the array (for once we are logged out)
+    func clearChannels(){
+        channels.removeAll()
+    }
+    
+    
 }

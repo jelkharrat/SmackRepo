@@ -31,6 +31,10 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         //The notification is being broadcasted in the createAccountVC and is being listened for here
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil )
+        
+        
+        //all this is doing is listening for any changes (seeing if any channels are added)
         SocketService.instance.getChannel { (success) in
             if success {
                 self.tableView.reloadData()
@@ -44,9 +48,12 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setUpUserInfo()
     }
     @IBAction func addChannelPressed(_ sender: Any) {
-        let addChannel = AddChannelVC()
-        addChannel.modalPresentationStyle = .custom
-        present(addChannel, animated: true, completion: nil)
+        if AuthService.instance.isLoggedIn {
+            let addChannel = AddChannelVC()
+            addChannel.modalPresentationStyle = .custom
+            present(addChannel, animated: true, completion: nil)
+        }
+        
     }
     
     @IBAction func loginBtnPressed(_ sender: Any) {
@@ -67,6 +74,10 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
    setUpUserInfo()
     }
     
+    @objc func channelsLoaded(_ notif: Notification) {
+    tableView.reloadData()
+    }
+    
     func setUpUserInfo(){
         if AuthService.instance.isLoggedIn {
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
@@ -77,6 +88,8 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             loginBtn.setTitle("Log In", for: .normal)
             userImg.image = UIImage(named: "menuProfileIcon")
             userImg.backgroundColor = UIColor.clear
+            //reloads the table that was removed when logged out
+            tableView.reloadData()
         }
     }
     
@@ -96,6 +109,16 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+    
+    // when select a row, save into message service variable, then notify chatVC, then dismiss
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let channel = MessageService.instance.channels[indexPath.row]
+        MessageService.instance.selectedChannel = channel
+        NotificationCenter.default.post(name: NOTIF_CHANNELS_SELECTED, object: nil)
+        
+        //slides menu back
+        self.revealViewController().revealToggle(animated: true)
     }
     
     
