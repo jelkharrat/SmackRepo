@@ -73,34 +73,13 @@ class ChatVC: UIViewController {
         //if cant find label, set to nothing
         let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
         channelNameLbl.text = "#\(channelName)"
-        getMessages()
     }
     
-    
-    //in this function, starts by finding all the channels, BUT if there are no channels (like first time loggin in) it will give a default message
-    //then if there are channels, and the user has been there before, the selected channel will be the last one the user was on
     func OnLogInGetMessages(){
         MessageService.instance.findAllChannel { (success) in
             if success {
-                MessageService.instance.findAllChannel(completion: { (success) in
-                    if success {
-                        if MessageService.instance.channels.count > 0 {
-                            MessageService.instance.selectedChannel = MessageService.instance.channels[0]
-                            self.updateWithChannel()
-                        }
-                    } else{
-                        self.channelNameLbl.text = "No Channels Yet!"
-                    }
-                })
                 //do stuff w channel
             }
-        }
-    }
-    
-    func getMessages(){
-        guard let channelId = MessageService.instance.selectedChannel?.id else {return}
-        MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
-            
         }
     }
 
