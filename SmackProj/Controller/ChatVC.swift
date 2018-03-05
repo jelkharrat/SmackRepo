@@ -29,7 +29,7 @@ class ChatVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: NOTIF_CHANNELS_SELECTED, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected(_:)), name: NOTIF_CHANNEL_SELECTED, object: nil)
         
         //going to do a check to see if logged in. if yes, then call finduserbyemail function to populate user info again
         if AuthService.instance.isLoggedIn {
@@ -73,13 +73,29 @@ class ChatVC: UIViewController {
         //if cant find label, set to nothing
         let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
         channelNameLbl.text = "#\(channelName)"
+        getMessages()
     }
     
     func OnLogInGetMessages(){
         MessageService.instance.findAllChannel { (success) in
             if success {
                 //do stuff w channel
+                if MessageService.instance.channels.count > 0 {
+                    MessageService.instance.selectedChannel = MessageService.instance.channels[0]
+                    self.updateWithChannel()
+                }else{
+                    self.channelNameLbl.text = "No Channels Yet, Bitch!"
+                }
+                
             }
+        }
+    }
+    
+    func getMessages() {
+        guard let channelId = MessageService.instance.selectedChannel?.id else {return}
+        
+        MessageService.instance.findAllMessagesForChannel(channelId: channelId) { (success) in
+             
         }
     }
 
