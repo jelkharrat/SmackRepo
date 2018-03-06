@@ -60,7 +60,7 @@ class SocketService: NSObject {
         }
     }
     
-    
+    //adds message to chat but not in real time
     func addMessage (messageBody: String, userId: String, channelId: String, completion: @escaping CompletionHandler) {
         let user = UserDataService.instance
         
@@ -69,7 +69,32 @@ class SocketService: NSObject {
         completion(true)
     }
     
-    
+    //sends the message out in real time
+    //""messageCreated" is from the API in the emit.io function
+    //func is listening for event from server called messageCreated
+    //if we get it we get a data array that we parse through
+    //does check and appends to array of messages
+    func getChatMessage (completion: @escaping CompletionHandler) {
+        socket.on("messageCreated") { (dataArray, ack) in
+            guard let msgBody = dataArray[0] as? String else { return }
+            guard let channelId = dataArray[2] as? String else { return }
+            guard let userName = dataArray[3] as? String else { return }
+            guard let userAvatar = dataArray[4] as? String else { return }
+            guard let userAvatarColor = dataArray[5] as? String else { return }
+            guard let id = dataArray[6] as? String else { return }
+            guard let timeStamp = dataArray[7] as? String else { return }
+
+            //does a check to see if message id matches any other id
+            if channelId == MessageService.instance.selectedChannel?.id && AuthService.instance.isLoggedIn {
+                let newMessage = Message(message: msgBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
+                MessageService.instance.messages.append(newMessage)
+                completion(true)
+            }else {
+                completion(false)
+            }
+            
+        }
+    }
     
     
     
