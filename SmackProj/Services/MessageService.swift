@@ -16,6 +16,7 @@ class MessageService {
     
     var channels = [Channel]()
     var messages = [Message]()
+    var unreadChannels = [String]()
     
     //variable for the channel we are currently looking at. Needs to be optional incase we log out
     var selectedChannel : Channel?
