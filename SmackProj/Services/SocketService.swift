@@ -96,7 +96,17 @@ class SocketService: NSObject {
         }
     }
     
-    
+    //within the server there are client.on/io.emit functions listening and sending out signals for events that listen for typing users
+    func getTypingUsers(_ completionhandler: @escaping (_ typingUsers: [String: String]) -> Void) {
+        
+        socket.on("userTypingUpdate") { (dataArray, ack) in
+            
+            //declaring a dictionary of userId and channel from where they are typing
+            guard let typingUsers = dataArray[0] as? [String:String] else {return}
+            completionhandler(typingUsers)
+        }
+        
+    }
     
     
     

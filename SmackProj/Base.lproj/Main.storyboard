@@ -153,11 +153,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcs-Fw-E2F">
+                                <rect key="frame" x="8" y="621" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SIL-uU-Qee" firstAttribute="top" secondItem="NcF-yn-rmf" secondAttribute="bottom" id="7FQ-rW-LpA"/>
+                            <constraint firstItem="Qcs-Fw-E2F" firstAttribute="leading" secondItem="mtD-mi-rpM" secondAttribute="leading" constant="8" id="DpK-E2-Rjg"/>
                             <constraint firstItem="CBg-eE-XhT" firstAttribute="bottom" secondItem="mtD-mi-rpM" secondAttribute="bottom" id="Fsn-fm-RgO"/>
+                            <constraint firstItem="CBg-eE-XhT" firstAttribute="top" secondItem="Qcs-Fw-E2F" secondAttribute="bottom" constant="6" id="Lmm-nU-bZL"/>
                             <constraint firstItem="SIL-uU-Qee" firstAttribute="leading" secondItem="mtD-mi-rpM" secondAttribute="leading" id="NaJ-rt-imU"/>
                             <constraint firstItem="CBg-eE-XhT" firstAttribute="leading" secondItem="mtD-mi-rpM" secondAttribute="leading" id="NrZ-7g-Fer"/>
                             <constraint firstItem="NcF-yn-rmf" firstAttribute="leading" secondItem="mtD-mi-rpM" secondAttribute="leading" id="RWm-MT-ebH"/>
@@ -177,6 +185,7 @@
                         <outlet property="messageTxtBox" destination="CBg-eE-XhT" id="ITE-hd-MFZ"/>
                         <outlet property="sendBtn" destination="B3A-71-0df" id="Nt5-vt-aXi"/>
                         <outlet property="tableView" destination="SIL-uU-Qee" id="HeG-jV-VQg"/>
+                        <outlet property="typingUsersLbl" destination="Qcs-Fw-E2F" id="sTv-dR-p8B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCU-aI-DDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
